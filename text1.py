@@ -17,13 +17,13 @@ import csv
 import unicodedata
 
 
-outputdir = "../youtubedownloadscripts/speech_data/train_demo"
+outputdir = "/content/train_demo"
 vtt_files = []
 count=0
 current_occurance =""
 wav_filename =""
-wav_fileDir = '../youtubedownloadscripts/speech_data/wav_demo'
-rootDir = '../youtubedownloadscripts/speech_data/vtt_demo'
+wav_fileDir = '/speech_data/youtube_news_old/wav_demo'
+rootDir = '/speech_data/youtube_news_old/vtt_demo'
 
 fileList = [f for f in listdir(rootDir) if isfile(join(rootDir, f))]
 for fname in fileList:
@@ -157,7 +157,7 @@ for fname in fileList:
                     remove_nonascii = unicodedata.normalize('NFKD', u'{}'.format(remove_specialchar)).encode('ASCII', 'ignore')
                     wav_transcript = remove_nonascii.lower()
                     fieldnames = [wav_filename, wav_filesize, wav_transcript]
-                    with open('speech_data/train_demo1.csv', 'a') as csvfile:
+                    with open('/speech_data/train_demo1.csv', 'a+') as csvfile:
                         writer = csv.writer(csvfile)
                         writer.writerow(fieldnames)
                 
@@ -166,7 +166,7 @@ for fname in fileList:
                     remove_nonascii = unicodedata.normalize('NFKD',  u'{}'.format(remove_specialchar)).encode('ASCII', 'ignore')
                     wav_transcript = remove_nonascii.lower()
                     fieldnames = [wav_filename, wav_filesize, wav_transcript]
-                    with open('speech_data/train_demo1.csv', 'a') as csvfile:
+                    with open('/speech_data/train_demo1.csv', 'a+') as csvfile:
                         writer = csv.writer(csvfile)
                         writer.writerow(fieldnames)
 
